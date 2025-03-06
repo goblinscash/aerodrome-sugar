@@ -1,0 +1,51 @@
+name: Sugar
+
+vyper:
+  version: "0.4.0"  # Explicitly set the version
+
+dependencies:
+  - pypi: snekmate
+    config_override:
+      base_path: src
+      contracts_folder: snekmate
+
+networks:
+  custom:
+    - name: mainnet
+      ecosystem: mode
+      chain_id: 34443
+    - name: mainnet
+      ecosystem: lisk
+      chain_id: 1135
+    - name: mainnet
+      ecosystem: metall2
+      chain_id: 1750
+    - name: mainnet
+      ecosystem: base
+      chain_id: 8453
+    - name: sepolia
+      ecosystem: base
+      chain_id: 84532
+
+node:
+  mode:
+    mainnet:
+      uri: https://mode.drpc.org
+  lisk:
+    mainnet:
+      uri: https://lisk.drpc.org
+  metall2:
+    mainnet:
+      uri: https://metall2.drpc.org
+  optimism:
+    mainnet:
+      uri: https://optimism-mainnet.wallet.coinbase.com
+  base:
+    mainnet:
+      uri: https://base.drpc.org
+
+    sepolia:
+      uri: https://base-sepolia-rpc.publicnode.com
+
+etherscan:
+   api_key: 5IXHGRSRBJAUG5URPDJXPV6DPMSY648UK8

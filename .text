@@ -1,0 +1,56 @@
+docker build ./ -t velodrome/sugar
+
+docker run --env-file=deployments/base.env --rm -v $(pwd):/app -w /app 
+-it velodrome/sugar sh
+
+
+###########################
+newgrp docker
+docker ps
+sudo systemctl restart docker
+
+docker build ./ -t velodrome/sugar
+docker run --env-file=deployments/base.env --rm -v $(pwd):/app -w /app -it velodrome/sugar sh
+
+docker run --env-file=deployments/base_sepolia.env --rm -v $(pwd):/app -w /app -it velodrome/sugar sh
+
+ape test --network=base:sepolia:node
+
+# and related dependencies are installed but there might
+
+VYper
+> ape accounts list
+> ape accounts import sugar
+
+
+# b0da97b35844d8ae39e39fed9f01011c0aeb99f7deaf2390f42339fafcb46765
+# ape console
+# ape console --network base:sepolia
+# ape run deploy --network base:sepolia
+# ape run deploy --network base:mainnet
+# export BASESCAN_API_KEY=5IXHGRSRBJAUG5URPDJXPV6DPMSY648UK8
+
+> account = accounts.load("sugar")
+> account.balance
+> account.address
+> account.provider.chain_id
+> account.transfer(account.address, 1)
+
+>from ape import Contract, project
+>contract = Contract("0xC56DB4Fc0eeAb023a5EfBBf3eee1D0c89C9f7Ee2")
+>project.deployments.track(contract)
+>networks.provider.network.explorer.publish_contract("0xC56DB4Fc0eeAb023a5EfBBf3eee1D0c89C9f7Ee2")
+
+from ape import networks
+
+etherscan = networks.provider.network.explorer
+etherscan.publish_contract("0xeB87421B93f02fec51c7d499D08781bD04cB8464")
+
+from ape import accounts, project
+
+# ape plugins list -a
+# ape compile --size
+
+
+
+
