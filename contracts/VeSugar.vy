@@ -58,7 +58,7 @@ interface IVotingEscrow:
   def idToManaged(_venft_id: uint256) -> uint256: view
 
 interface IGovernor:
-  def getVotes(_venft_id: uint256, _timepoint: uint256) -> uint256: view
+  def getVotes(_account: address, _venft_id: uint256, _timepoint: uint256) -> uint256: view
 
 # Vars
 
@@ -158,7 +158,7 @@ def _byId(_id: uint256) -> VeNFT:
   governance_amount: uint256 = 0
 
   if self.gov.address != empty(address):
-    governance_amount = staticcall self.gov.getVotes(_id, block.timestamp)
+    governance_amount = staticcall self.gov.getVotes(account, _id, block.timestamp)
 
   delegate_id: uint256 = staticcall self.ve.delegates(_id)
   managed_id: uint256 = staticcall self.ve.idToManaged(_id)

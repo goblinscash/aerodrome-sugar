@@ -1,7 +1,7 @@
 name: Sugar
 
 vyper:
-  version: "0.4.0"  # Explicitly set the version
+  version: "0.4.1"  # Explicitly set the version
 
 dependencies:
   - pypi: snekmate
@@ -47,5 +47,15 @@ node:
     sepolia:
       uri: https://base-sepolia-rpc.publicnode.com
 
+  bsc:
+    mainnet:
+      uri: https://virulent-dark-hill.bsc.quiknode.pro/01a06406e72abc1a563792bc3ae47c5c620299af
+
+
 etherscan:
-   api_key: 5IXHGRSRBJAUG5URPDJXPV6DPMSY648UK8
+  rate_limit: 15
+  bsc:
+    mainnet:
+      uri: https://bscscan.com
+      api_uri: https://api.bscscan.com/api
+      api_key: BY4F9PTH9PEQ48DQNBTDZPWGZ24MH9H9BP

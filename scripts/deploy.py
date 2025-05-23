@@ -6,11 +6,11 @@ from ape import project, accounts, networks
 
 def main():
     contract_name = str(os.getenv("CONTRACT")).lower()
-    networks.parse_network_choice("base:sepolia")
+    networks.parse_network_choice("bsc:mainnet")
     chain_id = os.getenv("CHAIN_ID")
     publish = os.getenv("PUBLISH", True)
     cont = os.getenv(f"SLIPSTREAM_HELPER_{chain_id}")
-    account = None
+    account = accounts.load("sugar")
     print(f"On chain id: {chain_id}, :: {contract_name}, {cont}++")
 
     if os.getenv("PROD"):

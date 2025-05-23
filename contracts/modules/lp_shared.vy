@@ -10,7 +10,7 @@ MAX_FACTORIES: constant(uint256) = 10
 MAX_POOLS: constant(uint256) = 2000
 MAX_ITERATIONS: constant(uint256) = 8000
 
-ROOT_CHAIN_IDS: constant(uint256[2]) = [10, 8453]
+ROOT_CHAIN_IDS: constant(uint256[3]) = [10, 8453, 56]
 
 # Interfaces
 

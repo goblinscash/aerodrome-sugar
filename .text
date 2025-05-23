@@ -9,12 +9,14 @@ newgrp docker
 docker ps
 sudo systemctl restart docker
 
-docker build ./ -t velodrome/sugar
-docker run --env-file=deployments/base.env --rm -v $(pwd):/app -w /app -it velodrome/sugar sh
+# docker build ./ -t velodrome/sugar
+# docker run --env-file=deployments/base.env --rm -v $(pwd):/app -w /app -it velodrome/sugar sh
 
-docker run --env-file=deployments/base_sepolia.env --rm -v $(pwd):/app -w /app -it velodrome/sugar sh
+# docker run --env-file=deployments/base_sepolia.env --rm -v $(pwd):/app -w /app -it velodrome/sugar sh
 
-ape test --network=base:sepolia:node
+docker run --env-file=deployments/bsc.env --rm -v $(pwd)/.ape:/root/.ape -v $(pwd):/app -w /app -it velodrome/sugar bash
+
+# ape test --network=base:sepolia:node
 
 # and related dependencies are installed but there might
 
@@ -25,10 +27,12 @@ VYper
 
 # b0da97b35844d8ae39e39fed9f01011c0aeb99f7deaf2390f42339fafcb46765
 # ape console
-# ape console --network base:sepolia
+ape console --network bsc:mainnet
 # ape run deploy --network base:sepolia
-# ape run deploy --network base:mainnet
+# ape run deploy --network bsc:mainnet
 # export BASESCAN_API_KEY=5IXHGRSRBJAUG5URPDJXPV6DPMSY648UK8
+export ETHERSCAN_API_KEY=BY4F9PTH9PEQ48DQNBTDZPWGZ24MH9H9BP
+export BSCSCAN_API_KEY=BY4F9PTH9PEQ48DQNBTDZPWGZ24MH9H9BP
 
 > account = accounts.load("sugar")
 > account.balance
